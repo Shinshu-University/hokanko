@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="none">
+    <title>今日の開放時間</title>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    /* styles.css */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Zen Maru Gothic', sans-serif;
+    background-color: #e6f7ff; /* 背景を柔らかい青に */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#clock {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-family: 'Roboto Mono', monospace; /* 固定幅フォント */
+    font-size: 4rem;
+    color: #002d73;
+    background-color: #ffffffcc; /* 半透明の背景 */
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    text-align: center;
+    color: #003d99; /* 濃い青で視認性アップ */
+    padding: 0;
+}
+
+.message {
+    font-size: 3rem; /* メッセージをさらに大きく */
+    font-weight: 400;
+    text-align: left;
+    margin: 0;
+}
+
+.time {
+    font-size: 10rem; /* 時刻をさらに目立たせる */
+    font-weight: 700;
+    color: #002d73; /* より濃い青で強調 */
+    margin: 0;
+    text-align: center;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); /* 影を追加して迫力を演出 */
+}
+
+.top-message {
+    margin: 0;
+}
+
+.bottom-message {
+    margin: 0;
+    text-align: right;
+}
+
+  </style>
+</head>
+<body>
+    <div id="clock"></div>
+    <div class="container">
+        <div class="message top-message">
+            今日の開放は
+        </div>
+        <div class="time">
+            13:05
+        </div>
+        <div class="message bottom-message">
+            です
+        </div>
+    </div>
+    <script>
+      // script.js
+function updateClock() {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+}
+
+// 毎秒更新
+setInterval(updateClock, 1000);
+// 初期表示
+updateClock();
+
+    </script>
+</body>
+</html>
